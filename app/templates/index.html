@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- Icon -->
-	<link rel="shortcut icon" href={{ url_for('static', filename='favicon.ico') }}>
+	<link rel="shortcut icon" href={{ url_for('static', filename='favicon1.ico') }}>
 	
 	<!-- CSS -->
 	<link rel="stylesheet" href={{ url_for('static', filename='/css/bootstrap.min.css') }} type="text/css">
@@ -27,7 +27,7 @@
 			
 			<!-- Logo -->
 			<div class="navbar-header">
-				<img src={{ url_for('static', filename='/images/orbit_logo.jpg') }} alt="Orbit Logo" 
+				<img src={{ url_for('static', filename='/img/logobrand.png') }} alt="Logo" 
 				width="50" height="50" align="left">
 				<a class="navbar-brand" href="#halamanku">&#160; Orbit Future Academy</a>
 			</div>
@@ -96,25 +96,57 @@
 				<form>
 					<div class="form-group" style="margin-left: 50px;">
 						<!-- Input Slider untuk Nilai Pengukuran Bunga Iris -->
-						<label for="range_sepal_length">Sepal Length (cm) </label>&nbsp;&rarr;&nbsp;
-						<span id="rangeVal_sepal_length">5.0<!-- Default value --></span>
-						<input type="range" min="4.3" max="7.9" step="0.05" value="5.0" class="slider" id="range_sepal_length" 
-						onInput="$('#rangeVal_sepal_length').html($(this).val())">
+						<label for="nilai_gre">Masukkan GRE Score anda	: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;&nbsp;
+						
+						<!-- Input GRE -->
+						<input type="text" id="nilai_gre" maxlength="5" size="5" value="319.0" max="340.0" placeholder="(1-340)" style="margin-inline-start: 10px" 
+						onInput="$('#nilaigre').html($(this).val())"/>
+						<span id="nilaigre" style="margin-inline-start: 7px">319.0<!-- Default value --></span>
 						</br>
-						<label for="range_sepal_width">Sepal Width (cm) </label>&nbsp;&rarr;&nbsp;
-						<span id="rangeVal_sepal_width">3.0<!-- Default value --></span>
-						<input type="range" min="2.0" max="4.4" step="0.05" value="3.0" class="slider" id="range_sepal_width" 
-						onInput="$('#rangeVal_sepal_width').html($(this).val())">
+						<label for="nilai_toefl">Masukkan TOEFL Score anda	: </label>&nbsp;&rarr;&nbsp;&nbsp;
+						
+						<!-- Input TOEFL -->
+						<input type="text" id="nilai_toefl" maxlength="5" size="5" value="118.0" max="120.0" placeholder="(1-120)" style="margin-inline-start: 8.5px"
+						onInput="$('#nilaitoefl').html($(this).val())"/>
+						<span id="nilaitoefl" style="margin-inline-start: 7px">118.0<!-- Default value --></span>
 						</br>
-						<label for="range_petal_length">Petal Length (cm) </label>&nbsp;&rarr;&nbsp;
-						<span id="rangeVal_petal_length">3.0<!-- Default value --></span>
-						<input type="range" min="1.0" max="6.9" step="0.05" value="3.5" class="slider" id="range_petal_length" 
-						onInput="$('#rangeVal_petal_length').html($(this).val())">
+						<label for="nilai_rating">Masukkan University Rating	: </label>&nbsp;&nbsp;&nbsp;&rarr;&nbsp;&nbsp;
+						
+						<!-- Input Rating -->
+						<input type="text" id="nilai_rating" maxlength="3" size="5" value="5.0"  max="5.0" placeholder="  (1-5)" style="margin-inline-start: 9.5px" 
+						onInput="$('#nilairating').html($(this).val())"/>
+						<span id="nilairating" style="margin-inline-start: 9.5px">5.0<!-- Default value --></span>&nbsp;&nbsp;
 						</br>
-						<label for="range_petal_width">Petal Width (cm) </label>&nbsp;&rarr;&nbsp;
-						<span id="rangeVal_petal_width">3.0<!-- Default value --></span>
-						<input type="range" min="0.1" max="2.5" step="0.05" value="1.0" class="slider" id="range_petal_width" 
-						onInput="$('#rangeVal_petal_width').html($(this).val())">
+						<label for="nilai_sop">Masukkan nilai SOP	: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;
+						
+						<!-- Input SOP -->
+						<input type="text" id="nilai_sop" maxlength="3" size="5" value="5.0"  max="5.0" placeholder="  (1-5)" style="margin-inline-start: 8.3px" 
+						onInput="$('#nilaisop').html($(this).val())"/>
+						<span id="nilaisop" style="margin-inline-start: 9.5px">5.0<!-- Default value --></span>&nbsp;&nbsp;
+						</br>
+						<label for="nilai_lor">Masukkan nilai LOR	: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;
+						
+						<!-- Input LOR -->
+						<input type="text" id="nilai_lor" maxlength="3" size="5" value="5.0"  max="5.0" placeholder="  (1-5)" style="margin-inline-start: 9px" 
+						onInput="$('#nilailor').html($(this).val())"/>
+						<span id="nilailor" style="margin-inline-start: 9.5px">5.0<!-- Default value --></span>&nbsp;&nbsp;
+						</br>
+						<label for="nilai_cgpa">Masukkan nilai CGPA	: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;
+						
+						<!-- Input CGPA -->
+						<input type="text" id="nilai_cgpa" maxlength="4" size="5" value="9.5"  max="10.0"placeholder=" (1-10)" style="margin-inline-start: 10px" 
+						onInput="$('#nilaicgpa').html($(this).val())"/>
+						<span id="nilaicgpa" style="margin-inline-start: 9.5px">9.5<!-- Default value --></span>&nbsp;&nbsp;
+						</br>
+						<!-- Input Research -->
+						<label for="nilai_research">Pernah melakukan Research?</label>&nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;
+						<input type="text" id="nilai_research" maxlength="1" size="5" value="1.0"  max="1.0"placeholder=" (0 / 1)" style="margin-inline-start: 9.5px" 
+						onInput="$('#nilairesearch').html($(this).val())"/>
+						<span id="nilairesearch" style="margin-inline-start: 9.5px">1.0<!-- Default value --></span>&nbsp;&nbsp;
+						<!-- <input type="radio" id="researchYes" value="yes" name="research"/>
+						<label for="yes">Yes</label><br>
+						<input type="radio" id="researchNo" value="no" name="research"/>
+						<label for="no">No</label><br> -->
 						</br>
 						<!-- Tombol Prediksi -->
 						<button type="submit" id="prediksi_submit" class="btn btn-default btn-lg">Prediksi</button>
@@ -176,7 +208,6 @@
 		<a href="#halamanku" title="To Top">
 			<span class="glyphicon glyphicon-chevron-up"></span>
 		</a>
-		<p>Orbit Future Academy <br> <a href="https://orbitfutureacademy.id/">orbitfutureacademy.id</a></p>
 	</footer>
 
 	<!-- JavaScript untuk Animasi Scroll dan Prediksi Model -->

@@ -8,16 +8,33 @@
 # =[Modules dan Packages]========================
 
 from flask import Flask,render_template,request,jsonify
+import json
 import pandas as pd
 import numpy as np
-from sklearn.tree import DecisionTreeClassifier
+import matplotlib.pyplot as plt
+import seaborn as sns
+import mplcyberpunk
+from sklearn.linear_model import LinearRegression
+from seaborn.relational import lineplot
 from joblib import load
+
 
 # =[Variabel Global]=============================
 
 app   = Flask(__name__, static_url_path='/static')
 model = None
-
+df = pd.read_csv("adm_data.csv")
+df.columns = df.columns.str.replace(' ', '')
+data = []
+rate = df["ChanceofAdmit"].values
+for x in rate:
+  if (x >= 0.01 and x < 0.5):    
+    data.append("low")
+  elif (x >= 0.5 and x <= 0.8):
+    data.append("medium")
+  elif (x > 0.8 and x <= 1.0):
+    data.append("high")  
+df['category'] = data
 # =[Routing]=====================================
 
 # [Routing untuk Halaman Utama atau Home]	
@@ -33,51 +50,91 @@ def beranda():
 @app.route("/api/deteksi",methods=['POST'])
 def apiDeteksi():
 	# Nilai default untuk variabel input atau features (X) ke model
-	input_sepal_length = 5.1
-	input_sepal_width  = 3.5
-	input_petal_length = 1.4
-	input_petal_width  = 0.2
+	input_gre = 319.0
+	input_toefl  = 118.0
+	input_rating = 5.0
+	input_sop  = 5.0
+	input_lor  = 5.0
+	input_cgpa = 9.5
+	input_research  = 1.0
 	
 	if request.method=='POST':
 		# Set nilai untuk variabel input atau features (X) berdasarkan input dari pengguna
-		input_sepal_length = float(request.form['sepal_length'])
-		input_sepal_width  = float(request.form['sepal_width'])
-		input_petal_length = float(request.form['petal_length'])
-		input_petal_width  = float(request.form['petal_width'])
+		input_gre = float(request.form['gre'])
+		input_toefl  = float(request.form['toefl'])
+		input_rating = float(request.form['rating'])
+		input_sop  = float(request.form['sop'])
+		input_lor  = float(request.form['lor'])
+		input_cgpa = float(request.form['cgpa'])
+		input_research  = float(request.form['research'])
 		
 		# Prediksi kelas atau spesies bunga iris berdasarkan data pengukuran yg diberikan pengguna
+		
+
 		df_test = pd.DataFrame(data={
-			"SepalLengthCm" : [input_sepal_length],
-			"SepalWidthCm"  : [input_sepal_width],
-			"PetalLengthCm" : [input_petal_length],
-			"PetalWidthCm"  : [input_petal_width]
+			"GREScore" : [input_gre],
+			"TOEFLScore"  : [input_toefl],
+			"UniversityRating" : [input_rating],
+			"SOP"  : [input_sop],
+			"LOR"  : [input_lor],
+			"CGPA"  : [input_cgpa],
+			"Research"  : [input_research]
 		})
 
-		hasil_prediksi = model.predict(df_test[0:1])[0]
-
+		hasil_prediksi = model.predict(df_test[0:1])
+		plt.style.use("cyberpunk")
+		plt.figure(figsize = (16,8))
+		sns.lineplot(data=df, x='ChanceofAdmit', y='ChanceofAdmit', hue='category', palette='light:b')
+		sns.scatterplot(x=hasil_prediksi[0:1], y=hasil_prediksi[0:1], s=150, color='cyan', marker='v')
+		mplcyberpunk.add_glow_effects()
+		plt.axvline(x=hasil_prediksi[0:1], color='r', linestyle='--', ymax=hasil_prediksi[0:1]-0.026)
+		plt.axhline(y=hasil_prediksi[0:1], color='g', linestyle='--', xmax=hasil_prediksi[0:1]-0.026)
+		
 		# Set Path untuk gambar hasil prediksi
-		if hasil_prediksi == 'Iris-setosa':
-			gambar_prediksi = '/static/images/iris_setosa.jpg'
-		elif hasil_prediksi == 'Iris-versicolor':
-			gambar_prediksi = '/static/images/iris_versicolor.jpg'
+		if hasil_prediksi >= 0.01 and hasil_prediksi < 0.5:
+			plt.savefig('static/img/eval.png')
+			gambar_prediksi = 'static/img/eval.png'
+			hasil =  'Low'
+			
+		elif hasil_prediksi >= 0.5 and hasil_prediksi <= 0.8:
+			plt.savefig('static/img/eval2.png')
+			gambar_prediksi = 'static/img/eval2.png'
+			hasil =  'Medium'
+   			
 		else:
-			gambar_prediksi = '/static/images/iris_virginica.jpg'
+			plt.savefig('static/img/eval3.png')
+			gambar_prediksi = 'static/img/eval3.png'
+			hasil =  'High'
+			
 		
 		# Return hasil prediksi dengan format JSON
+		class NpEncoder(json.JSONEncoder):
+			def default(self, obj):
+				if isinstance(obj, np.integer):
+					return int(obj)
+				if isinstance(obj, np.floating):
+					return float(obj)
+				if isinstance(obj, np.ndarray):
+					return obj.tolist()
+				return json.JSONEncoder.default(self, obj)
+
+		hasil_prediksi = json.dumps(f"{np.round(hasil_prediksi[0] * 100,2)} %", cls=NpEncoder)
 		return jsonify({
 			"prediksi": hasil_prediksi,
+			"kategori" : hasil,
 			"gambar_prediksi" : gambar_prediksi
 		})
+  
 
 # =[Main]========================================
 
 if __name__ == '__main__':
 	
 	# Load model yang telah ditraining
-	model = load('model_iris_dt.model')
+	model = load('model_Reg.model')
 
 	# Run Flask di localhost 
-	app.run(host="localhost", port=5000, debug=True)
+	app.run(host="localhost", port=5001, debug=True)
 	
 	
 

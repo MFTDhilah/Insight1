@@ -50,6 +50,7 @@
 		var username = document.getElementById("username").value;
 		var password = document.getElementById("password").value;		
 		if (username != "" && password!="") {
+			successToast();
 			return true;
 		}else{
 			errorToast();
@@ -64,8 +65,28 @@
   function errorToast(){
     new Notify ({
       status: 'error',
-      title: 'ERROR',
-      text: 'TEXT',
+      title: 'FAILED!',
+      text: 'Mohon masukkan username dan password!',
+      effect: 'fade',
+      speed: 300,
+      customClass: '',
+      customIcon: '',
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top',
+      customWrapper: '',
+    })
+  }
+  function successToast(){
+    new Notify ({
+      status: 'success',
+      title: 'Succeed!',
+      text: 'Berhasil masuk!',
       effect: 'fade',
       speed: 300,
       customClass: '',
