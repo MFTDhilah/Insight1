@@ -22,7 +22,7 @@ model = None
 
 # [Routing untuk Halaman Utama atau Home]	
 @app.route("/")
-def login():
+def landing():
     return render_template('loginpage.html')
 
 @app.route("/beranda")

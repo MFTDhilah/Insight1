@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='/css/style.css') }}>
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-	<link rel="stylesheet" href={{ url_for('static', filename='/dist/simple-notify.min.css') }} />
+	<link rel="stylesheet" href={{ url_for('static', filename='/css/simple-notify.min.css') }} />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -24,7 +24,7 @@
            		   </div>
            		   <div class="div">
            		   		<h5>Username</h5>
-           		   		<input type="username" class="input" name="username" id="username">
+           		   		<input type="username" class="input" id="username">
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -33,31 +33,32 @@
            		   </div>
            		   <div class="div">
            		    	<h5>Password</h5>
-           		    	<input type="password" class="input" name="password" id="password">
+           		    	<input type="password" class="input" id="password">
             	   </div>
             	</div>
             	<a href="#">Forgot Password?</a>
             	<input type="submit" class="btn" value="Login" id="btn">
             </form>
+			
         </div>
     </div>
     <script type="text/javascript" src={{ url_for('static', filename='/js/main.js') }}></script>
 </body>
 
 <script type="text/javascript">
-	function validasi() {
+  	function validasi(){
 		var username = document.getElementById("username").value;
 		var password = document.getElementById("password").value;		
 		if (username != "" && password!="") {
 			return true;
 		}else{
+			errorToast();
 			return false;
 		}
 	}
- 
 </script>
 
-<script src={{ url_for('static', filename='/dist/simple-notify.min.js') }}></script>
+<script src={{ url_for('static', filename='/js/simple-notify.min.js') }}></script>
 
 <script>
   function errorToast(){
@@ -79,7 +80,6 @@
       position: 'right top',
       customWrapper: '',
     })
-	return false;
   }
 </script>
 
