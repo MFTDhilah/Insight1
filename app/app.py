@@ -40,11 +40,27 @@ df['category'] = data
 # [Routing untuk Halaman Utama atau Home]	
 @app.route("/")
 def landing():
-    return render_template('loginpage.html')
+    return render_template('login.html')
+
+@app.route("/register")
+def register():
+    return render_template('register.html')
 
 @app.route("/beranda")
 def beranda():
     return render_template('index.html')
+
+@app.route("/beranda/aplikasi")
+def aplikasi():
+    return render_template('testing.html')
+
+@app.route("/beranda/faq")
+def faq():
+    return render_template('faq.html')
+
+@app.route("/beranda/teams")
+def teams():
+    return render_template('teams.html')
 
 # [Routing untuk API]	
 @app.route("/api/deteksi",methods=['POST'])
@@ -93,17 +109,17 @@ def apiDeteksi():
 		# Set Path untuk gambar hasil prediksi
 		if hasil_prediksi >= 0.01 and hasil_prediksi < 0.5:
 			plt.savefig('static/img/eval.png')
-			gambar_prediksi = 'static/img/eval.png'
+			gambar_prediksi = '\static/img/eval.png'
 			hasil =  'Low'
 			
 		elif hasil_prediksi >= 0.5 and hasil_prediksi <= 0.8:
 			plt.savefig('static/img/eval2.png')
-			gambar_prediksi = 'static/img/eval2.png'
+			gambar_prediksi = '\static/img/eval2.png'
 			hasil =  'Medium'
    			
 		else:
 			plt.savefig('static/img/eval3.png')
-			gambar_prediksi = 'static/img/eval3.png'
+			gambar_prediksi = '\static/img/eval3.png'
 			hasil =  'High'
 			
 		

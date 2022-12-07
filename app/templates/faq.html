@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Beranda</title>
+    <title>FAQ</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
@@ -45,7 +45,7 @@
             <div class="navbar-holder d-flex align-items-center justify-content-between w-100">
               <!-- Navbar Header-->
               <div class="navbar-header">
-                <!-- Navbar Brand --><a class="navbar-brand d-none d-sm-inline-block" href="\beranda">
+                <!-- Navbar Brand --><a class="navbar-brand d-none d-sm-inline-block" href="/beranda">
                   <div class="brand-text d-none d-lg-inline-block"><span>Prediksi </span><strong> Kelulusanmu</strong></div>
                   <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div></a>
                 <!-- Toggle Button--><a class="menu-btn active" id="toggle-btn" href="#"><span></span><span></span><span></span></a>
@@ -80,13 +80,13 @@
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center py-4 px-3"><img class="avatar shadow-0 img-fluid rounded-circle" src={{ url_for('static', filename='/img/avatar-8.jpg') }} alt="...">
             <div class="ms-3 title">
-              <h1 class="h4 mb-2">Hola</h1>
+              <h1 class="h4 mb-2">Hola !</h1>
               <p class="text-sm text-gray-500 fw-light mb-0 lh-1">Welcome</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Main</span>
           <ul class="list-unstyled py-4">
-            <li class="sidebar-item active"><a class="sidebar-link" href="\beranda"> 
+            <li class="sidebar-item "><a class="sidebar-link" href="/beranda"> 
                 <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                   <use xlink:href="#real-estate-1"> </use>
                 </svg>Dashboard </a></li>
@@ -94,7 +94,7 @@
                 <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                   <use xlink:href="#portfolio-grid-1"> </use>
                 </svg>Data Testing </a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="\beranda/faq"> 
+            <li class="sidebar-item active"><a class="sidebar-link" href="\beranda\faq"> 
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                       <use xlink:href="#survey-1"> </use>
                     </svg>FaQ </a></li>
@@ -113,7 +113,7 @@
           <!-- Page Header-->
           <header class="bg-white shadow-sm px-4 py-3 z-index-20">
             <div class="container-fluid px-0">
-              <h2 class="mb-0 p-1">Dashboard</h2>
+              <h2 class="mb-0 p-1">FaQ</h2>
             </div>
           </header>
           <!-- Dashboard Counts Section-->
@@ -123,33 +123,51 @@
                 <div class="card-body">
                   <div class="row gx-5 bg-white">
 
-                <!-- Project-->
-             <!-- Project-->
-             <div class="card mb-3">
-              <div class="card-body p-3">
-                <div class="row align-items-center gx-lg-5 gy-3">
-                  <div class="col-lg-8 border-lg-end">
-                    <div class="d-flex align-items-center justify-content-between">
-                       <div class="ms-3">
-                          <h3 class="h4 text-gray-700 mb-3">Aplikasi Prediksi Kelulusan Mahasiswa</h3>
-                          <medium class="text-gray-500" align="justify">Aplikasi Prediksi Status Kelulusan adalah sebuah aplikasi yang memprediksi status kelulusan mahasiswa,
-                            terutama yang ingin melanjut ke jenjang S2. Metode ini digunakan untuk mengklasifikasikan objek dari objek lain ke kelas masing-masing dengan menggunakan atributnya.
-                             Data yang digunakan untuk input adalah nilai subjek dari masing-masing mahasiswa. 
-                             Untuk tujuan evaluasi, metode validation digunakan, dengan hasil akurasi rata-rata sebesar ... 
-                             Dalam proyek tersebut kami membangun model .. untuk memprediksi peluang masuk ke
-                              universitas tertentu berdasarkan profil mahasiswa</medium>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <div class="d-flex align-items-center">
-                        <div class="sidebar-header d-flex align-items-center py-8 px-4"><img class="bg shadow-0 img-fluid" src={{ url_for('static', filename='/img/logos.png') }} alt="...">
-                        </div>
+              <!-- Project-->
+              <div class="card mb-3">
+                <div class="card-body p-3">
+                  <div class="row align-items-center gx-lg-5 gy-3">
+                    <div class="col-lg-6 border-lg-end">
+                      <div class="d-flex align-items-center justify-content-between">
+                          <div class="ms-3">
+                            <h3 class="h4 text-gray-700 mb-0">FaQ</h3><small class="text-gray-500">Berisi pertanyaan seputaran aplikasi</small>
+                          </div>
+                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  <!--FAQ-->
+<section>
+
+  <div class="row">
+    <div class="col-md-6 col-lg-4 mb-4">
+      <h6 class="mb-3 text-green"><i class="far fa-paper-plane text-green pe-2"></i>
+      Kriteria apa yang cocok <p> untuk menggunakan aplikasi ini?</p></h6>
+      <p>
+        Untuk kamu yang ingin melanjutkan <u> studi S2 </u>kamu bisa
+        mencoba nya !        
+      </p>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+      <h6 class="mb-3 text-green"><i class="fas fa-pen-alt text-green pe-2"></i> Bagaimana
+        cara penggunaan aplikasi ini?</h6>
+      <p>
+        Aplikasi ini bekerja dengan kita memasukkan kriteria input yang akan digunakan untuk memprediksi
+        kelulusan calon mahasiswa dengan metode regresi linear
+      </p>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+      <h6 class="mb-3 text-green"><i class="fas fa-user text-green pe-2"></i> Metode yang digunakan pada aplikasi?
+      </h6>
+      <p>
+        Metode yang digunakan adalah regresi linear berganda        
+      </p>
+    </div>
+
+  
+  </div>
+</section>
+<!--Section: FAQ-->
           </section>
           <!-- Page Footer-->
           <footer class="position-absolute bottom-0 bg-success text-white text-center py-3 w-100 text-xs" id="footer">

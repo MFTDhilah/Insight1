@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Beranda</title>
+    <title>Predict Time</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
@@ -61,7 +61,7 @@
                 <li class="nav-item dropdown"><a class="nav-link text-white dropdown-toggle d-flex align-items-center" id="languages" href="#" data-bs-toggle="dropdown" aria-expanded="false"><img class="me-2" src={{ url_for('static', filename='/img/flags/16/GB.png') }} alt="English"><span class="d-none d-sm-inline-block">English</span></a>
                   <ul class="dropdown-menu dropdown-menu-end mt-3 shadow-sm" aria-labelledby="languages">
                     <li><a class="dropdown-item" rel="nofollow" href="#"> <img class="me-2" src={{ url_for('static', filename='/img/flags/16/DE.png') }} alt="English"><span class="text-xs text-gray-700">German</span></a></li>
-                    <li><a class="dropdown-item" rel="nofollow" href="#"> <img class="me-2" src={{ url_for('static', filename='/img/flags/16/FR.png') }} alt="English"><span class="text-xs text-gray-700">French                                         </span></a></li>
+                    <li><a class="dropdown-item" rel="nofollow" href="#"> <img class="me-2" src={{ url_for('static', filename='/img/flags/16/FR.png') }} alt="English"><span class="text-xs text-gray-700">French</span></a></li>
                   </ul>
                 </li>
                 <!-- Logout    -->
@@ -80,21 +80,21 @@
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center py-4 px-3"><img class="avatar shadow-0 img-fluid rounded-circle" src={{ url_for('static', filename='/img/avatar-8.jpg') }} alt="...">
             <div class="ms-3 title">
-              <h1 class="h4 mb-2">Hola</h1>
+              <h1 class="h4 mb-2">Hola !</h1>
               <p class="text-sm text-gray-500 fw-light mb-0 lh-1">Welcome</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Main</span>
           <ul class="list-unstyled py-4">
-            <li class="sidebar-item active"><a class="sidebar-link" href="\beranda"> 
+            <li class="sidebar-item "><a class="sidebar-link" href="\beranda"> 
                 <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                   <use xlink:href="#real-estate-1"> </use>
                 </svg>Dashboard </a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="\beranda/aplikasi"> 
+            <li class="sidebar-item active"><a class="sidebar-link" href="\beranda/aplikasi"> 
                 <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                   <use xlink:href="#portfolio-grid-1"> </use>
                 </svg>Data Testing </a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="\beranda/faq"> 
+                <li class="sidebar-item"><a class="sidebar-link" href="\beranda/faq"> 
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                       <use xlink:href="#survey-1"> </use>
                     </svg>FaQ </a></li>
@@ -113,7 +113,7 @@
           <!-- Page Header-->
           <header class="bg-white shadow-sm px-4 py-3 z-index-20">
             <div class="container-fluid px-0">
-              <h2 class="mb-0 p-1">Dashboard</h2>
+              <h2 class="mb-0 p-1">Data Testing</h2>
             </div>
           </header>
           <!-- Dashboard Counts Section-->
@@ -123,33 +123,115 @@
                 <div class="card-body">
                   <div class="row gx-5 bg-white">
 
-                <!-- Project-->
-             <!-- Project-->
-             <div class="card mb-3">
-              <div class="card-body p-3">
-                <div class="row align-items-center gx-lg-5 gy-3">
-                  <div class="col-lg-8 border-lg-end">
-                    <div class="d-flex align-items-center justify-content-between">
-                       <div class="ms-3">
-                          <h3 class="h4 text-gray-700 mb-3">Aplikasi Prediksi Kelulusan Mahasiswa</h3>
-                          <medium class="text-gray-500" align="justify">Aplikasi Prediksi Status Kelulusan adalah sebuah aplikasi yang memprediksi status kelulusan mahasiswa,
-                            terutama yang ingin melanjut ke jenjang S2. Metode ini digunakan untuk mengklasifikasikan objek dari objek lain ke kelas masing-masing dengan menggunakan atributnya.
-                             Data yang digunakan untuk input adalah nilai subjek dari masing-masing mahasiswa. 
-                             Untuk tujuan evaluasi, metode validation digunakan, dengan hasil akurasi rata-rata sebesar ... 
-                             Dalam proyek tersebut kami membangun model .. untuk memprediksi peluang masuk ke
-                              universitas tertentu berdasarkan profil mahasiswa</medium>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <div class="d-flex align-items-center">
-                        <div class="sidebar-header d-flex align-items-center py-8 px-4"><img class="bg shadow-0 img-fluid" src={{ url_for('static', filename='/img/logos.png') }} alt="...">
-                        </div>
+              <!-- Project-->
+              <div class="card mb-3">
+                <div class="card-body p-3">
+                  <div class="row align-items-center gx-lg-5 gy-3">
+                    <div class="col-lg-6 border-lg-end">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center"> <!--<img class="img-fluid shadow-sm" src="img/project-2.jpg" alt="..." width="50"> -->
+                          <div class="ms-3">
+                           <!-- Input Nilai Pengukuran dari Pengguna -->
+				<h3>Nilai Pengukuran </h3>
+				<form>
+					<div class="form-group">
+						<!-- Input Slider untuk Nilai Pengukuran Bunga Iris -->
+						<label for="nilai_gre">Masukkan GRE Score anda	: </label>
+						<!-- Input GRE -->
+						<input type="text" class="form-control" id="nilai_gre" 
+						onInput="$('#nilaigre').html($(this).val())" required="true" placeholder="Score GRE">
+						<label for="nilai_toefl">Masukkan TOEFL Score anda	: </label>
+						<!-- Input TOEFL -->
+						<input type="text" class="form-control" id="nilai_toefl"
+						onInput="$('#nilaitoefl').html($(this).val())" placeholder="Skor TOEFL">
+						<label for="nilai_rating">Masukkan University Rating	: </label>
+						<!-- Input Rating -->
+						<input type="text" id="nilai_rating" class="form-control" 
+						onInput="$('#nilairating').html($(this).val())" placeholder="Univeristy Rating">
+						<label for="nilai_sop">Masukkan nilai SOP	: </label>
+						<!-- Input SOP -->
+						<input type="text" id="nilai_sop" class="form-control" 
+						onInput="$('#nilaisop').html($(this).val())" placeholder="Score SOP">
+						<label for="nilai_lor">Masukkan nilai LOR	: </label>
+						<!-- Input LOR -->
+						<input type="text" id="nilai_lor" class="form-control"
+						onInput="$('#nilailor').html($(this).val())" placeholder="Score LOR>
+						<label for="nilai_cgpa">Masukkan nilai CGPA	: </label>
+						<!-- Input CGPA -->
+						<input type="text" id="nilai_cgpa" class="form-control" 
+						onInput="$('#nilaicgpa').html($(this).val())" placeholder="Skor CGPA">
+						<!-- Input Research -->
+						<label for="nilai_research">Pernah melakukan Research?</label>
+						<input type="text" id="nilai_research" class="form-control"
+						onInput="$('#nilairesearch').html($(this).val())" placeholder="0/1">
+						<!-- <input type="radio" id="researchYes" value="yes" name="research"/>
+						<label for="yes">Yes</label><br>
+						<input type="radio" id="researchNo" value="no" name="research"/>
+						<label for="no">No</label><br> -->
+						<!-- Tombol Prediksi -->
+          </form>
+        </div>
+      </div>
+    </div>
                     </div>
-                  </div>
                 </div>
+              
+              <div class="col-sm-6">
+                <div class="d-flex align-items-center justify-content-between">
+                  <div class="d-flex align-items-center"> <!--<img class="img-fluid shadow-sm" src="img/project-2.jpg" alt="..." width="50"> -->
+                    <div class="ms-3">
+                     <!-- Input Nilai Pengukuran dari Pengguna -->
+  <h3>Keterangan</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">
+          GRE Score (out of 340)</th>
+      </tr>
+      <tr>
+        <th scope="col">
+          TOEFL Score (out of 120)</th>
+      </tr>
+      <tr>
+        <th scope="col">
+          University Rating (out of 5)</th>
+      </tr>
+
+      <tr>
+        <th scope="col">
+          Statment of Purpose {SOP} (out of 5)</th>
+      </tr>
+
+      <tr>
+        <th scope="col">
+          Letter of Recommendation {LOP} Strength (out of 5)</th>
+      </tr>
+
+      <tr>
+        <th scope="col">
+          Undergraduate CGPA (out of 10)</th>
+      </tr>
+
+      <tr>
+        <th scope="col">
+          Research Experience 1 (meaning “yes”) or 0 (meaning “no”)</th>
+      </tr>
+
+    </thead>
+    <tbody>
+     </tbody>
+  </table>
+  <button type="submit" id="prediksi_submit" class="btn btn-success btn-lg">Prediksi</button>
+  <br><br><br>
+  </div>
+  </div>
+  </div>
+                <!-- Bagian Halaman untuk Hasil Prediksi -->
               </div>
-            </div>
+
+              <div id="hasil_prediksi" align="center">
+                  <!-- Hasil Prediksi akan ditampilkan di sini-->
+              </div>
           </section>
           <!-- Page Footer-->
           <footer class="position-absolute bottom-0 bg-success text-white text-center py-3 w-100 text-xs" id="footer">
@@ -168,7 +250,6 @@
         </div>
       </div>
     </div>
-    <!-- JavaScript files-->
     <!-- JavaScript files-->
     <script src={{ url_for('static', filename='/vendor/bootstrap/js/bootstrap.bundle.min.js') }}></script>
     <script src={{ url_for('static', filename='/vendor/chart.js/Chart.min.js') }}></script>
