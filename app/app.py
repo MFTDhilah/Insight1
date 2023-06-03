@@ -150,7 +150,7 @@ if __name__ == '__main__':
 	model = load('model_Reg.model')
 
 	# Run Flask di localhost 
-	app.run(host="localhost", port=5001, debug=True)
+	app.run(host='0.0.0.0', port=5001, debug=True)
 	
 	
 
